@@ -2,6 +2,9 @@ import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 
+// Required: this page reads cookies/session and must not be statically prerendered
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const session = await getSession();
   if (!session) {
